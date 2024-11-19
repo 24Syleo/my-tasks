@@ -1,0 +1,13 @@
+.error {
+    color: var(--danger);
+    font-style: italic;
+}
+
+
+.btnFinal {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+}

@@ -1,0 +1,21 @@
+.containerInput {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin-bottom: 1em;
+    background-color: var(--white);
+    border-radius: var(--radius);
+    border: var(--border);
+    padding: 0.4em 0.8em;
+}
+
+.inputField {
+    color: var(--gris);
+    border: 0;
+    outline: none;
+    text-align: center;
+    letter-spacing: 0.8px;
+    font-weight: 700;
+    font-style: italic;
+    width: 100%;
+}

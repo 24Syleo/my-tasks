@@ -1,0 +1,9 @@
+.textArea {
+    width: 90%;
+    margin: 0;
+    padding: 10px;
+    border: var(--border);
+    border-radius: var(--radius);
+    min-height: 5em;
+    resize: none;
+}

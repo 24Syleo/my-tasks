@@ -1,0 +1,27 @@
+.containerHeader {
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--blanc);
+    /* Couleur de fond */
+}
+
+.titleHeader {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: var(--shadow);
+    color: transparent;
+    /* Rend le texte transparent */
+    background-image: url("/public/header.gif");
+    /* Utilise le GIF comme fond */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-clip: text;
+    /* Applique le fond uniquement au texte (Chrome, Safari, Edge) */
+    background-clip: text;
+    /* Applique le fond au texte (pour les autres navigateurs supportés) */
+    text-align: center;
+}
