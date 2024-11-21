@@ -4,6 +4,8 @@ import Modal from "./Modal/Modal";
 import Input from "./Input/Input";
 import TextArea from "./TextArea/TextArea";
 import FormAddTask from "./FormAddTask/FormAddTask";
+import ListTasks from "./ListTasks/ListTasks";
+import Task from "./Task/Task";
 
 export {
     Button,
@@ -11,5 +13,7 @@ export {
     Modal,
     Input,
     TextArea,
-    FormAddTask
+    FormAddTask,
+    ListTasks,
+    Task
 }

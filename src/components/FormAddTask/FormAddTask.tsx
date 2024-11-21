@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useFormik } from 'formik';
-import { IFormAddTask, ITask } from './FormAddTask.interface';
+import { ITask, IListTask } from '../../interface/Task.interface';
+import { IFormAddTask } from './FormAddTask.interface';
 import { Input, TextArea, Button } from "../../components";
 import "./FormAddTask.style.css";
 
-const FormAddTask = () => {
+const FormAddTask = ({ onClose }: IFormAddTask) => {
     const [step, setStep] = useState(1);
     const [notValid, setNotValid] = useState(false);
+    const listTasks: IListTask = JSON.parse(localStorage.getItem('tasks') || '{"tasks":[]}');
 
     const validate = (values: ITask) => {
         const errors: any = {};
@@ -40,7 +42,9 @@ const FormAddTask = () => {
         validate,
         onSubmit: (values: ITask) => {
             setNotValid(false);
-            console.log(values);
+            listTasks.tasks.push(values);
+            localStorage.setItem("tasks", JSON.stringify(listTasks));
+            onClose();
         },
     });
 

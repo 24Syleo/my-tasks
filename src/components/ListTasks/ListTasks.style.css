@@ -1,0 +1,8 @@
+.acc {
+    max-width: 400px;
+    background-color: var(--secondaire);
+    padding: 10px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    list-style: none;
+}

@@ -1,0 +1,72 @@
+.hide {
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.accTask {
+    position: relative;
+    width: 100%;
+    border: var(--border);
+    list-style: none;
+    border-radius: var(--radius);
+    margin-bottom: 5px;
+    background-color: var(--blanc);
+}
+
+.accLabel {
+    padding: 20px 5px 20px 30px;
+    width: 100%;
+    display: block;
+    color: var(--primaire);
+    font-weight: var(--bold);
+}
+
+.accLabel:hover {
+    cursor: pointer;
+    color: var(--secondaire);
+}
+
+.accLabel:before {
+    content: '\2192';
+    position: absolute;
+    top: 15px;
+    left: 8px;
+    display: inline-block;
+    font-size: 20px;
+    color: var(--gris);
+    font-weight: var(--bold);
+}
+
+.hide:checked~.accLabel {
+    color: var(--secondaire);
+}
+
+.hide:checked~.accLabel::before {
+    content: '\2193';
+}
+
+.accChild {
+    margin: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    opacity: 0;
+    height: 0;
+    transform: scale(1, 0);
+    transform-origin: center top;
+}
+
+.hide:checked~.accChild {
+    border: var(--border);
+    margin: 0 -20px 15px -20px;
+    background-color: var(--blanc);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+    padding: 30px;
+    height: auto;
+    opacity: 1;
+    transform: scale(1, 1);
+}
