@@ -70,3 +70,9 @@
     opacity: 1;
     transform: scale(1, 1);
 }
+
+.titleContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

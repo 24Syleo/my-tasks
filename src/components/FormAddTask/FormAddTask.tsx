@@ -5,10 +5,13 @@ import { IFormAddTask } from './FormAddTask.interface';
 import { Input, TextArea, Button } from "../../components";
 import "./FormAddTask.style.css";
 
-const FormAddTask = ({ onClose }: IFormAddTask) => {
+interface FormAddTaskProps extends IFormAddTask {
+    updateTasks: (tasks: IListTask) => void; // Add this prop
+}
+
+const FormAddTask = ({ onClose, updateTasks }: FormAddTaskProps) => {
     const [step, setStep] = useState(1);
     const [notValid, setNotValid] = useState(false);
-    const listTasks: IListTask = JSON.parse(localStorage.getItem('tasks') || '{"tasks":[]}');
 
     const validate = (values: ITask) => {
         const errors: any = {};
@@ -42,8 +45,18 @@ const FormAddTask = ({ onClose }: IFormAddTask) => {
         validate,
         onSubmit: (values: ITask) => {
             setNotValid(false);
+
+            // Load current tasks from localStorage
+            const listTasks: IListTask = JSON.parse(localStorage.getItem('tasks') || '{"tasks":[]}');
             listTasks.tasks.push(values);
+
+            // Save updated list to localStorage
             localStorage.setItem("tasks", JSON.stringify(listTasks));
+
+            // Notify parent about the update
+            updateTasks(listTasks);
+
+            // Close the modal
             onClose();
         },
     });
@@ -55,7 +68,7 @@ const FormAddTask = ({ onClose }: IFormAddTask) => {
                 {step === 1 && (
                     <Input
                         type="text"
-                        value={formik.values.title} // Correct
+                        value={formik.values.title}
                         change={formik.handleChange}
                         placeholder="Titre de la tâche"
                         name="title"
